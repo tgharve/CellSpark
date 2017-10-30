@@ -1,0 +1,21 @@
+function [V] =  Variables(V_init, Cai_init, CaSR_init, Nai_init, Ki_init)
+V.Volt=V_init;
+V.Volt2=V_init;
+V.Cai=Cai_init;
+V.CaSR=CaSR_init;
+V.Nai=Nai_init;
+V.Ki=Ki_init;
+V.M= 0.;
+V.H= 0.75;
+V.J= 0.75;
+V.Xr1= 0.;
+V.Xr2= 1.;
+V.Xs= 0.;
+V.R= 0.;
+V.S= 1.;
+V.D= 0.;
+V.F= 1.;
+V.FCa= 1.;
+V.G= 1.;
+V.Itot = 0;
+end
