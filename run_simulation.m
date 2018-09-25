@@ -35,10 +35,15 @@ if isequal(type,'NEURON')
     kT = 3^((Tc-37.0)/10);
     RTONF=(R*T)/F;
     
-    GNa = 120;
-    GK = 36;
-    GL = 0.3;
+    %Conductances
+    %GNa = 120;
+    %GK = 36;
+    %GL = 0.3;
     VL = -49;
+    
+    GNa = Args.GNa;
+    GK = Args.GK;
+    GL = Args.GL;
     
     CAPACITANCE = Args.Cm;
     
@@ -93,6 +98,12 @@ if isequal(type,'NEURON')
             label = [get(handles.edit10,'String'), ' ms'];
         case 11
             label = [get(handles.edit11,'String'), ' ms'];
+        case 12
+            label = [get(handles.edit17,'String'), ' mS/cm^{2}'];
+        case 13
+            label = [get(handles.edit16,'String'), ' mS/cm^{2}'];
+        case 14
+            label = [get(handles.edit15,'String'), ' mS/cm^{2}'];
     end
     
     if ow == 1

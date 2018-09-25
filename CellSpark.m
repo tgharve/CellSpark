@@ -23,7 +23,7 @@ global State currents
 
 % Edit the above text to modify the response to help CellSpark
 
-% Last Modified by GUIDE v2.5 24-Sep-2017 19:14:07
+% Last Modified by GUIDE v2.5 25-Sep-2018 09:32:57
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -130,6 +130,10 @@ Args.HT = getappdata(0,'HT');
 Args.STOPTIME = getappdata(0,'STOPTIME');
 Args.bcl = getappdata(0,'bcl');
 Args.protocol = getappdata(0,'protocol');
+Args.GNa = str2double(get(handles.edit17 , 'String'));
+Args.GK = str2double(get(handles.edit16 , 'String'));
+Args.GL = str2double(get(handles.edit15, 'String'));
+
 xlim([0,getappdata(0,'STOPTIME')]);
 [hObject,handles] = run_simulation(Args,hObject,handles);
 guidata(hObject,handles);
@@ -491,6 +495,7 @@ set(handles.text30,'Visible','on');
 set(handles.edit13,'Visible','on');
 set(handles.edit4,'String','37.0');
 set(handles.text23,'String','mA');
+set(handles.uibuttongroup4,'Visible','off');
 setappdata(0,'STOPTIME',600);
 setappdata(0,'HT',.02);
 s={'Nao','Ko','Cao','T','Nai','Ki','CaSR','Cm','Vc','Vsr','Amplitude','Duration','Start Time'};
@@ -516,7 +521,7 @@ set(handles.edit6,'String','0.2');
 set(handles.text32,'Visible','on');
 set(handles.edit14,'Visible','on');
 set(handles.text31,'Visible','on');
-
+set(handles.uibuttongroup4,'Visible','off');
 set(handles.text29,'Visible','on');
 set(handles.text30,'Visible','on');
 set(handles.edit13,'Visible','on');
@@ -546,7 +551,7 @@ set(handles.edit6,'String','0.2');
 set(handles.text32,'Visible','on');
 set(handles.edit14,'Visible','on');
 set(handles.text31,'Visible','on');
-
+set(handles.uibuttongroup4,'Visible','off');
 set(handles.text29,'Visible','on');
 set(handles.text30,'Visible','on');
 set(handles.edit13,'Visible','on');
@@ -609,6 +614,9 @@ if get(handles.radiobutton7,'Value') == 1
     set(handles.edit11,'String','1.0');
     set(handles.edit9,'String','15');
     set(handles.edit8,'String','1.0');
+    set(handles.edit17,'String','120');
+    set(handles.edit16,'String','36');
+    set(handles.edit15,'String','0.3')
 else
     set(handles.edit1,'String','5.4');
     set(handles.edit2, 'String','2.0');
@@ -757,8 +765,10 @@ function pushbutton5_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton5 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-reset(handles.axes1);
-grid minor
+%reset(handles.axes1);
+xlim(handles.axes1,[0,getappdata(0,'STOPTIME')])
+ylim(handles.axes1,'auto')
+%grid minor
 datacursormode on
 set(handles.radiobutton4,'Value',1);
 set(handles.radiobutton5,'Value',0);
@@ -788,14 +798,83 @@ set(handles.text30,'Visible','off');
 set(handles.edit13,'Visible','off');
 set(handles.edit9,'String','15');
 set(handles.text23,'String','uA');
-
+set(handles.uibuttongroup4,'Visible','on');
 set(handles.edit4,'String','37.0');
 setappdata(0,'STOPTIME',20);
 setappdata(0,'HT',.001);
 pushbutton2_Callback(hObject,eventdata,handles);
 pushbutton3_Callback(hObject,eventdata,handles);
-s={'Nao','Ko','Cao','T','Nai','Ki','Cai','Cm','Amplitude','Duration','Start Time'};
+s={'Nao','Ko','Cao','T','Nai','Ki','Cai','Cm','Amplitude','Duration','Start Time','GNa','GK','GL'};
 set(handles.popupmenu2,'String',s);
 
 s = {'Voltage (mV)','INa (mA)','IK (mA)','Ileak (mA)','m','h','n'};
 set(handles.popupmenu3,'String',s);
+
+
+
+function edit15_Callback(hObject, eventdata, handles)
+% hObject    handle to edit15 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit15 as text
+%        str2double(get(hObject,'String')) returns contents of edit15 as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit15_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit15 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit16_Callback(hObject, eventdata, handles)
+% hObject    handle to edit16 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit16 as text
+%        str2double(get(hObject,'String')) returns contents of edit16 as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit16_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit16 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit17_Callback(hObject, eventdata, handles)
+% hObject    handle to edit17 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit17 as text
+%        str2double(get(hObject,'String')) returns contents of edit17 as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit17_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit17 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
