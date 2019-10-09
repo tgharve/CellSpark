@@ -1,12 +1,14 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="4112241585" file="U:\CellSpark\CellSpark.prj" location="U:\CellSpark" name="CellSpark" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="4262422702" file="U:\CellSpark\CellSPark.prj" location="U:\CellSpark" name="CellSPark" target="target.mlapps" target-name="Package App">
     <param.appname>CellSpark</param.appname>
     <param.authnamewatermark>Tyler Harvey</param.authnamewatermark>
     <param.email>tgharve@clemson.edu</param.email>
     <param.company>Clemson University</param.company>
     <param.icon />
     <param.icons />
-    <param.summary />
+    <param.summary>v1.2 Changes:
+-Fixed problem of advanced settings not opening.
+-Added ion conductance (GNa) as variable parameter in cardiac models</param.summary>
     <param.description />
     <param.screenshot />
     <param.version>1.2</param.version>
@@ -15,11 +17,10 @@
     <param.products.version />
     <param.platforms />
     <param.output>${PROJECT_ROOT}</param.output>
-    <param.guid>ae5a6912-bbd4-4fab-b67c-4a44984bc263</param.guid>
+    <param.guid>aa598a4a-c2f4-46d3-8177-be5f4eba70d0</param.guid>
     <unset>
       <param.icon />
       <param.icons />
-      <param.summary />
       <param.description />
       <param.screenshot />
       <param.products.name />
@@ -32,6 +33,8 @@
       <file>${PROJECT_ROOT}\CellSpark.m</file>
     </fileset.main>
     <fileset.depfun>
+      <file>${PROJECT_ROOT}\advsettings.fig</file>
+      <file>${PROJECT_ROOT}\advsettings.m</file>
       <file>${PROJECT_ROOT}\CellSpark.fig</file>
       <file>${PROJECT_ROOT}\run_simulation.m</file>
       <file>${PROJECT_ROOT}\Step.m</file>
