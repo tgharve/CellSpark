@@ -241,7 +241,8 @@ if isequal(type,'NEURON')
             GK1=5.405;
             
             %Parameters for INa
-            GNa=14.838;
+            %GNa=14.838;
+            GNa = Args.GNa;
             %Parameters for IbNa
             GbNa=0.00029;
             %Parameters for INaK

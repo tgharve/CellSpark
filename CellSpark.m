@@ -23,7 +23,7 @@ global State currents
 
 % Edit the above text to modify the response to help CellSpark
 
-% Last Modified by GUIDE v2.5 25-Sep-2018 09:32:57
+% Last Modified by GUIDE v2.5 09-Oct-2019 10:10:55
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -495,7 +495,16 @@ set(handles.text30,'Visible','on');
 set(handles.edit13,'Visible','on');
 set(handles.edit4,'String','37.0');
 set(handles.text23,'String','mA');
-set(handles.uibuttongroup4,'Visible','off');
+set(handles.uibuttongroup4,'Visible','on');
+set(handles.edit17,'String','14.838');
+
+set(handles.edit15,'Visible','off');
+set(handles.edit16,'Visible','off');
+set(handles.text38,'Visible','off');
+set(handles.text41,'Visible','off');
+set(handles.text42,'Visible','off');
+set(handles.text43,'Visible','off');
+
 setappdata(0,'STOPTIME',600);
 setappdata(0,'HT',.02);
 s={'Nao','Ko','Cao','T','Nai','Ki','CaSR','Cm','Vc','Vsr','Amplitude','Duration','Start Time'};
@@ -521,7 +530,16 @@ set(handles.edit6,'String','0.2');
 set(handles.text32,'Visible','on');
 set(handles.edit14,'Visible','on');
 set(handles.text31,'Visible','on');
-set(handles.uibuttongroup4,'Visible','off');
+set(handles.uibuttongroup4,'Visible','on');
+set(handles.edit17,'String','14.838');
+
+set(handles.edit15,'Visible','off');
+set(handles.edit16,'Visible','off');
+set(handles.text38,'Visible','off');
+set(handles.text41,'Visible','off');
+set(handles.text42,'Visible','off');
+set(handles.text43,'Visible','off');
+
 set(handles.text29,'Visible','on');
 set(handles.text30,'Visible','on');
 set(handles.edit13,'Visible','on');
@@ -551,7 +569,16 @@ set(handles.edit6,'String','0.2');
 set(handles.text32,'Visible','on');
 set(handles.edit14,'Visible','on');
 set(handles.text31,'Visible','on');
-set(handles.uibuttongroup4,'Visible','off');
+set(handles.uibuttongroup4,'Visible','on');
+set(handles.edit17,'String','14.838');
+
+set(handles.edit15,'Visible','off');
+set(handles.edit16,'Visible','off');
+set(handles.text38,'Visible','off');
+set(handles.text41,'Visible','off');
+set(handles.text42,'Visible','off');
+set(handles.text43,'Visible','off');
+
 set(handles.text29,'Visible','on');
 set(handles.text30,'Visible','on');
 set(handles.edit13,'Visible','on');
@@ -615,6 +642,14 @@ if get(handles.radiobutton7,'Value') == 1
     set(handles.edit9,'String','15');
     set(handles.edit8,'String','1.0');
     set(handles.edit17,'String','120');
+    
+    set(handles.edit15,'Visible','on');
+    set(handles.edit16,'Visible','on');
+    set(handles.text38,'Visible','on');
+    set(handles.text41,'Visible','on');
+    set(handles.text42,'Visible','on');
+    set(handles.text43,'Visible','on');
+    
     set(handles.edit16,'String','36');
     set(handles.edit15,'String','0.3')
 else
@@ -631,6 +666,17 @@ else
     set(handles.edit9, 'String','52');
     set(handles.edit10, 'String','1');
     set(handles.edit11, 'String','50');
+    
+    set(handles.uibuttongroup4,'Visible','on');
+    set(handles.edit17,'String','14.838');
+
+    set(handles.edit15,'Visible','off');
+    set(handles.edit16,'Visible','off');
+    set(handles.text38,'Visible','off');
+    set(handles.text41,'Visible','off');
+    set(handles.text42,'Visible','off');
+    set(handles.text43,'Visible','off');
+    
 end
 
 % --- Executes on selection change in popupmenu1.
@@ -878,3 +924,10 @@ function edit17_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+% --- Executes during object creation, after setting all properties.
+function uibuttongroup4_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to uibuttongroup4 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
