@@ -195,6 +195,15 @@ if isequal(type,'NEURON')
             Vc = Args.Vc;
             Vsr = Args.Vsr;
             
+            %Constants
+            R=8314.472;
+            F=96485.3415;
+            %Tc = 37;
+            Tc = Args.Tc;
+            T=Tc+273.0;
+            kT = 3^((T-310)/10);
+            RTONF=(R*T)/F;
+            
             %Calcium dynamics
             Bufc=0.15;
             Kbufc=0.001;
@@ -205,14 +214,7 @@ if isequal(type,'NEURON')
             Vmaxup=0.000425;
             Kup=0.00025;
             
-            %Constants
-            R=8314.472;
-            F=96485.3415;
-            %Tc = 37;
-            Tc = Args.Tc;
-            T=Tc+273.0;
-            kT = 3^((T-310)/10);
-            RTONF=(R*T)/F;
+            
             
             %Cellular capacitance
             %CAPACITANCE=0.185;
